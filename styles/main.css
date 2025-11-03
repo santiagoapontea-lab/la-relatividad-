@@ -1,0 +1,295 @@
+/* RESET BÁSICO Y FUENTES */
+:root {
+    --color-bg: #00000a;
+    --color-text: #e0f7fa;
+    --color-accent: #00bcd4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    overflow: hidden; /* Oculta barras de scroll durante la intro */
+}
+
+/* --- PANTALLA DE INTRODUCCIÓN --- */
+#intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 1s ease-out; /* Para ocultar al final */
+}
+
+.intro-content {
+    z-index: 10;
+    position: relative;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    color: var(--color-accent);
+}
+
+.instruction {
+    margin-top: 20px;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* --- CAMPO DE ESTRELLAS (STARFIELD) DE LA INTRO --- */
+/* Técnica de box-shadow para crear las estrellas */
+#starfield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Estrellas grandes y rápidas */
+    background: radial-gradient(circle, #ffffff 1px, transparent 1px),
+                radial-gradient(circle, #bbd7e0 0.5px, transparent 0.5px),
+                radial-gradient(circle, #7fa9c1 0.2px, transparent 0.2px);
+    background-size: 100px 100px, 50px 50px, 20px 20px;
+    animation: moveStars 120s linear infinite;
+}
+
+@keyframes moveStars {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100px 100px;
+    }
+}
+
+
+/* --- AGUJERO NEGRO (TRIGGER) --- */
+#black-hole-trigger {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 30px auto;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 100px 10px rgba(255, 165, 0, 0.5); 
+    transition: transform 0.5s ease;
+}
+
+.singularity {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #000000 0%, #111111 80%, transparent 100%);
+    position: absolute;
+}
+
+.accretion-disk {
+    width: 150%;
+    height: 150%;
+    border-radius: 50%;
+    position: absolute;
+    background: conic-gradient(from 0deg, 
+                rgba(255, 100, 0, 0.8) 0%, 
+                rgba(255, 0, 150, 0.6) 10%, 
+                transparent 40%, 
+                transparent 60%,
+                rgba(255, 0, 150, 0.6) 90%, 
+                rgba(255, 100, 0, 0.8) 100%);
+    animation: rotateDisk 10s linear infinite;
+    filter: blur(5px);
+}
+
+@keyframes rotateDisk {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#btn-enter {
+    z-index: 20;
+    padding: 10px 20px;
+    border: 2px solid var(--color-accent);
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--color-accent);
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#btn-enter:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+}
+
+
+/* --- ANIMACIÓN DE TRANSICIÓN JS ACTIVA --- */
+/* Clase que se añade al body con JavaScript para la transición */
+.transition-active #black-hole-trigger {
+    /* La clave de la transición: escala y rota rápidamente */
+    transform: scale(50) rotate(720deg); 
+    opacity: 0; /* Desaparece el disco, pero la escala cubre la pantalla */
+    transition: transform 1.5s cubic-bezier(0.5, 0, 0.5, 1), opacity 0.5s; 
+}
+
+.transition-active .intro-content {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* --- PANTALLA PRINCIPAL (CONTENIDO) --- */
+#main-content {
+    min-height: 100vh;
+    padding: 50px 20px;
+    background-color: var(--color-bg); 
+    
+    /* 1. CREACIÓN DEL CAMPO ESTELAR DINÁMICO */
+    background: radial-gradient(circle, #ffffff 0.5px, transparent 0.5px),
+                radial-gradient(circle, #bbd7e0 0.25px, transparent 0.25px),
+                radial-gradient(circle, #7fa9c1 0.1px, transparent 0.1px);
+    
+    background-size: 80px 80px, 40px 40px, 15px 15px;
+    background-attachment: fixed; 
+    
+    /* 2. EFECTO DE OSCURECIMIENTO SUAVE (para legibilidad) */
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6); 
+    
+    /* 3. ANIMACIÓN DE ESTRELLAS (para un efecto sutil) */
+    animation: slowStarMove 180s linear infinite; 
+}
+
+@keyframes slowStarMove {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 80px 80px; 
+    }
+}
+
+/* Clase para ocultar/mostrar con JS */
+.hidden {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.visible {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+header, section {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+/* --- ESTILO DEL MENÚ PRINCIPAL --- */
+#main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0 50px 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6); 
+    border-radius: 8px;
+    border: 1px solid rgba(0, 188, 212, 0.3);
+}
+
+#main-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+    font-weight: bold;
+}
+
+#main-nav a:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+}
+
+/* --- ESTILO DE SECCIONES DE CONTENIDO --- */
+section {
+    background-color: rgba(0, 0, 0, 0.85); 
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px); 
+}
+
+h3 {
+    color: var(--color-accent);
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+}
+
+/* Estilo para los cuadros de texto/imagen */
+.content-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.content-box > div {
+    flex: 1; 
+}
+
+/* Reversa de orden para secciones alternas */
+.content-box.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Estilo para las imágenes (Ajuste 150x150) */
+.image-graphic img {
+    width: 300px;  /* Ancho fijo de 150px */
+    height: 300px; /* Alto fijo de 150px */
+    object-fit: cover; /* Recorta la imagen para que quepa sin distorsionar */
+    display: block;  
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+    margin: 0 auto; /* Centra la imagen */
+}
+
+/* Footer style */
+footer {
+    text-align: center;
+    padding: 20px;
+    opacity: 0.7;
+}
+
+/* Ajuste para dispositivos pequeños */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    .content-box, .content-box.reverse {
+        flex-direction: column; /* Apila contenido en móviles */
+    }
+
+    #main-nav {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

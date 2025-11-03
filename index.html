@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatividad: Agujeros Negros</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+    <div id="intro-screen">
+        <div id="starfield"></div> 
+        
+        <div class="intro-content">
+            <h1>El Límite del Conocimiento</h1>
+            <p>Una exploración de la Relatividad y los Agujeros Negros.</p>
+            
+            <div id="black-hole-trigger">
+                <div class="accretion-disk"></div>
+                <div class="singularity"></div>
+                <button id="btn-enter">ENTRAR</button>
+            </div>
+
+            <p class="instruction">Haz clic en el centro para viajar a la página principal.</p>
+        </div>
+    </div>
+
+    <div id="main-content" class="hidden">
+        <header>
+            <h2>El Universo Absorbente</h2>
+            
+            <nav id="main-nav">
+                <a href="#relatividad">Relatividad General</a>
+                <a href="#que-son">Definición</a>
+                <a href="#horizonte">Horizonte de Sucesos</a>
+                <a href="#tipos">Tipos de Agujeros Negros</a>
+                <a href="#hawking">Radiación Hawking</a>
+            </nav>
+        </header>
+        
+        <section id="relatividad">
+            <h3>1. La Curvatura del Espacio-Tiempo (Relatividad General)</h3>
+            <div class="content-box">
+                <div class="text-info">
+                    <p>La base para entender los agujeros negros es la teoría de la **Relatividad General** de Albert Einstein (1915). Esta teoría reformuló nuestra comprensión de la gravedad: ya no es una fuerza invisible, sino la manifestación de la curvatura del espacio y el tiempo, el cual Einstein fusionó en un concepto único: el **Espacio-Tiempo**.</p>
+                    <p>La masa le dice al espacio-tiempo cómo curvarse, y el espacio-tiempo le dice a la materia cómo moverse. Los objetos masivos, como las estrellas y los planetas, crean "pozos" en la tela cósmica, y la gravedad es simplemente el movimiento de otros objetos siguiendo esas curvas.</p>
+                </div>
+                <div class="image-graphic">
+                    <img src="images/curva espacial.png" alt="curva_espacial.png">
+                </div>
+            </div>
+        </section>
+
+        <section id="que-son">
+            <h3>2. ¿Qué es un Agujero Negro?</h3>
+            <div class="content-box reverse">
+                <div class="image-graphic">
+                    <img src="images/agujero negro.avif" alt="Representación artística de un agujero negro con su disco de acreción">
+                </div>
+                <div class="text-info">
+                    <p>Un Agujero Negro es el colapso final y más extremo de una estrella masiva. Cuando el combustible nuclear de una estrella se agota, su núcleo se comprime bajo su propia gravedad, sin nada que lo detenga.</p>
+                    <p>Si la masa residual es lo suficientemente grande, la gravedad se vuelve tan intensa que la curvatura del espacio-tiempo se convierte en un **pozo infinito**, del cual la velocidad de escape supera a la velocidad de la luz. De ahí su nombre: ni siquiera los fotones (luz) pueden escapar.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="horizonte">
+            <h3>3. El Horizonte de Sucesos y la Singularidad</h3>
+            <div class="content-box">
+                <div class="text-info">
+                    <p>El **Horizonte de Sucesos** es la frontera de un agujero negro. No es una superficie física, sino un límite matemático de no retorno. Una vez que un objeto lo cruza, no puede volver a salir, no importa qué tan rápido viaje.</p>
+                    <p>En el centro de un agujero negro yace la **Singularidad**: un punto de densidad infinita donde toda la masa del agujero se comprime. Es aquí donde las leyes de la física clásica se rompen y la gravedad es, teóricamente, infinita.</p>
+                </div>
+                <div class="image-graphic">
+                    <img src="images/horizonte-sucesos.webp" alt="Diagrama del horizonte de sucesos y la singularidad de un agujero negro">
+                </div>
+            </div>
+        </section>
+        
+        <section id="tipos">
+            <h3>4. Clasificación: de Estelares a Supermasivos</h3>
+             <div class="content-box reverse">
+                <div class="image-graphic">
+                    <img src="images/imagen-de-archivo-de-un-agujero-negro.jpeg" alt="Imagen de una galaxia con un agujero negro supermasivo en su centro">
+                </div>
+                <div class="text-info">
+                    <p>Existen principalmente tres tipos:</p>
+                    <ul>
+                        <li>**Agujeros Negros Estelares:** Se forman tras la muerte de una estrella masiva. Tienen masas de 3 a 100 veces la del Sol.</li>
+                        <li>**Agujeros Negros Supermasivos:** Residen en el centro de casi todas las galaxias (incluida la Vía Láctea). Tienen masas de millones a miles de millones de veces la masa solar (ej. Sagitario A*).</li>
+                        <li>**Agujeros Negros de Masa Intermedia:** Una clasificación propuesta, con masas entre el estelar y el supermasivo.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="hawking">
+            <h3>5. La Desaparición Lenta: Radiación de Hawking</h3>
+            <div class="content-box">
+                <div class="text-info">
+                    <p>El físico Stephen Hawking propuso que los agujeros negros no son completamente "negros". Debido a efectos cuánticos cerca del Horizonte de Sucesos, los agujeros negros emiten una energía térmica muy débil llamada **Radiación de Hawking**.</p>
+                    <p>Esta radiación significa que los agujeros negros pierden masa lentamente con el tiempo, y eventualmente, si se les da el suficiente tiempo (trillones de años), ¡podrían evaporarse por completo!</p>
+                </div>
+                <div class="image-graphic">
+                    <img src="images/643832a072d8a_700_462!.jpg" alt="Diagrama de partículas virtuales y radiación de Hawking cerca de un agujero negro">
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; Exploración Relativista 2025. El viaje continúa más allá del horizonte.</p>
+        </footer>
+    </div>
+    
+    <script src="scripts/main.js"></script>
+</body>
+</html>
